@@ -1,0 +1,24 @@
+<div class="fixed top-0 h-12 bg-indigo-950 w-full z-50 flex">
+    <div class="flex-1 flex items-center justify-end mx-4">
+        <button (click)="emptySection()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-4 py-1
+            hover:bg-indigo-800
+            focus:bg-indigo-800 
+            active:bg-indigo-500 active:border-transparent
+        ">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                <path fill-rule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                    clip-rule="evenodd" />
+            </svg>
+            <span>
+                Add New Section
+            </span>
+        </button>
+    </div>
+</div>
+
+<div class="mt-14 relative mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8">
+    <router-outlet></router-outlet>
+</div>
+
+<app-add-section [section]="newSection"></app-add-section>

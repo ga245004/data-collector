@@ -1,0 +1,9 @@
+<ng-container *ngFor="let section of sections; let sectionIndex = index">
+  <app-section class="w-full space-x-1 space-y-4" [section]="section"
+      [sectionIndex]="sectionIndex">
+      <ng-container *ngFor="let item of section.children; let itemIndex = index">
+        <app-section-fields class="h-full w-full p-4" [item]="item" [itemIndex]="itemIndex"
+          [section]="section" [sectionIndex]="sectionIndex"></app-section-fields>
+      </ng-container>
+    </app-section>
+</ng-container>
