@@ -1,21 +1,24 @@
-<div class="fixed top-0 h-16 bg-indigo-950 w-full z-50 flex items-center pl-6">
+<div class="fixed top-0 h-16 bg-indigo-950 w-full z-50 flex items-center pl-2 sm:pl-6">
     <div class="flex items-end select-none">
-        <button class="w-10 h-10  rounded-full " (click)="gotoHome()" title="Data Collector = Collect + Copy + Code + Convert">
+        <button class="w-10 h-10  rounded-full " (click)="gotoHome()"
+            title="Data Collector = Collect + Copy + Code + Convert">
             <img class="w-full h-full" src="assets/images/logo.png">
         </button>
         <div class="flex items-center space-x-4">
             <a class="text-xl text-white font-bold">
-                ata Collect
+                ata Collector
             </a>
-            <span class="text-gray-200">|</span>
-            <span class="text-xl text-rose-500">Collect</span>
-            <span class="text-xl text-yellow-400">Copy</span>
-            <span class="text-xl text-green-400">Code</span>
-            <span class="text-xl text-sky-400">Convert</span>
+            <span class="hidden lg:flex items-center space-x-4">
+                <span class="text-gray-200">|</span>
+                <span class="text-xl text-rose-500">Collect</span>
+                <span class="text-xl text-yellow-400">Copy</span>
+                <span class="text-xl text-green-400">Code</span>
+                <span class="text-xl text-sky-400">Convert</span>
+            </span>
         </div>
     </div>
-    <div class="flex-1 flex items-center justify-end mx-4">
-        <button (click)="expandALl()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-4 py-1
+    <div class="flex-1 flex items-center justify-end mx-4 space-x-2">
+        <button (click)="expandALl()" class="text-white hidden sm:flex items-center space-x-2 border border-transparent rounded-md px-2 sm:px-4 py-1
             hover:bg-indigo-800
             focus:bg-indigo-800 
             active:bg-indigo-500 active:border-transparent
@@ -26,11 +29,11 @@
                     clip-rule="evenodd" />
             </svg>
 
-            <span>
-                Expand all Section
+            <span class="hidden lg:flex">
+                Expand
             </span>
         </button>
-        <button (click)="collapseAll()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-4 py-1
+        <button (click)="collapseAll()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-2 sm:px-4 py-1
             hover:bg-indigo-800
             focus:bg-indigo-800 
             active:bg-indigo-500 active:border-transparent
@@ -41,11 +44,11 @@
                     clip-rule="evenodd" />
             </svg>
 
-            <span>
-                Collapse all Section
+            <span class="hidden lg:flex">
+                Collapse
             </span>
         </button>
-        <button (click)="emptySection()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-4 py-1
+        <button (click)="emptySection()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-2 sm:px-4 py-1
             hover:bg-indigo-800
             focus:bg-indigo-800 
             active:bg-indigo-500 active:border-transparent
@@ -55,14 +58,14 @@
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
                     clip-rule="evenodd" />
             </svg>
-            <span>
-                Add New Section
+            <span class="hidden lg:flex">
+                Add Section
             </span>
         </button>
     </div>
 </div>
 
-<div class="mt-20 relative mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8">
+<div class="mt-20 relative mx-auto w-full max-w-container px-2 sm:px-6 lg:px-8">
     <router-outlet></router-outlet>
 </div>
 
