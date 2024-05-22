@@ -10,8 +10,12 @@ export default {
             },
             children: [
                 {
-                    firstName: "Gaurav",
-                    lastName: "Maheshwari"
+                    firstName: "Peter",
+                    lastName: "Weiss"
+                },
+                {
+                    firstName: "Amie",
+                    lastName: "Mason"
                 }
             ]
         },
