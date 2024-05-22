@@ -21,6 +21,14 @@ export class AppComponent {
   }
 
 
+  expandALl() {
+    this.store.dispatch(SectionsActions.expandCollapseSection({ expand: true }))
+  }
+
+  collapseAll() {
+    this.store.dispatch(SectionsActions.expandCollapseSection({ expand: false }))
+  }
+
   emptySection() {
     this.newSection = {
       label: '', columns: 2, children: [], childLabels: {}, fields: []

@@ -1,5 +1,35 @@
 <div class="fixed top-0 h-12 bg-indigo-950 w-full z-50 flex">
     <div class="flex-1 flex items-center justify-end mx-4">
+        <button (click)="expandALl()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-4 py-1
+            hover:bg-indigo-800
+            focus:bg-indigo-800 
+            active:bg-indigo-500 active:border-transparent
+        ">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
+                <path fill-rule="evenodd"
+                    d="M7.47 12.78a.75.75 0 0 0 1.06 0l3.25-3.25a.75.75 0 0 0-1.06-1.06L8 11.19 5.28 8.47a.75.75 0 0 0-1.06 1.06l3.25 3.25ZM4.22 4.53l3.25 3.25a.75.75 0 0 0 1.06 0l3.25-3.25a.75.75 0 0 0-1.06-1.06L8 6.19 5.28 3.47a.75.75 0 0 0-1.06 1.06Z"
+                    clip-rule="evenodd" />
+            </svg>
+
+            <span>
+                Expand all Section
+            </span>
+        </button>
+        <button (click)="collapseAll()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-4 py-1
+            hover:bg-indigo-800
+            focus:bg-indigo-800 
+            active:bg-indigo-500 active:border-transparent
+        ">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
+                <path fill-rule="evenodd"
+                    d="M7.47 3.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1-1.06 1.06L8 4.81 5.28 7.53a.75.75 0 0 1-1.06-1.06l3.25-3.25Zm-3.25 8.25 3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 1 1-1.06 1.06L8 9.81l-2.72 2.72a.75.75 0 0 1-1.06-1.06Z"
+                    clip-rule="evenodd" />
+            </svg>
+
+            <span>
+                Collapse all Section
+            </span>
+        </button>
         <button (click)="emptySection()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-4 py-1
             hover:bg-indigo-800
             focus:bg-indigo-800 

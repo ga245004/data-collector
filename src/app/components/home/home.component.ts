@@ -32,7 +32,7 @@ export class HomeComponent implements OnDestroy {
 
     constructor(private appService: AppService, private store: Store) {
         this.storeSubscriber = this.store.select(selectSections).subscribe(res => {
-            this.data = JSON.parse(JSON.stringify(res)) as Section[]
+            this.data = JSON.parse(JSON.stringify(res)) as Section[];
         })
     }
 

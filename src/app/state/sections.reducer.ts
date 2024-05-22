@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { SectionsActions, SectionsApiActions } from './sections.actions';
 import { Section } from '../models/section.model';
 import mockData from './mockData';
+import { expand } from 'rxjs';
 
 export const LocalStorageKey = "sections"
 
@@ -35,6 +36,12 @@ export const sectionsReducer = createReducer(
         console.log(props)
         const newSections = [..._state];
         UpdateSection(newSections, sectionIndex, props)
+        SaveSections(newSections);
+        return newSections
+    }),
+    on(SectionsActions.expandCollapseSection, (_state, { expand }) => {
+        console.log("expandCollapseSection", expand)
+        const newSections = [..._state.map(s => ({ ...s, expand }))];
         SaveSections(newSections);
         return newSections
     })
