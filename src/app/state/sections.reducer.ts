@@ -58,8 +58,8 @@ function SaveSections(newSections: Section[]) {
 
 function UpdateSection(sections: Section[], sectionIndex: number, props) {
     const findSection = sections[sectionIndex]
-    const { label, columns, children, childLabels, fields } = props;
-    const newSection = { ...findSection, ...{ label, columns, children, childLabels, fields } }
+    const { label, columns, children, childLabels, fields, expand, maximize} = props;
+    const newSection = { ...findSection, ...{ label, columns, children, childLabels, fields, expand, maximize } }
     sections.splice(sectionIndex, 1, newSection)
     return [...sections]
 }
