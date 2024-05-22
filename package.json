@@ -29,6 +29,7 @@
     "@angular/platform-browser-dynamic": "17.2.4",
     "@angular/router": "17.2.4",
     "@ngrx/store": "^17.2.0",
+    "@vercel/analytics": "^1.2.2",
     "angular-in-memory-web-api": "~0.17.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
