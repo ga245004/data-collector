@@ -31,7 +31,8 @@ export class EditFieldComponent implements OnInit {
   }
 
   hideEditField() {
-    this.item[this.field + 'edit'] = false
+    this.item[this.field + 'edit'] = false;
+    console.log({ sectionIndex: this.sectionIndex, props: { ...this.section } })
     this.store.dispatch(SectionsActions.updateSection({ sectionIndex: this.sectionIndex, props: { ...this.section } }))
   }
 }

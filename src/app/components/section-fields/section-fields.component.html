@@ -30,13 +30,11 @@
   </div>
 
   <div class=" bg-gray-50 border rounded-md p-4 space-y-2 hover:border-indigo-700">
-    <ng-container *ngFor="let field of section.fields; ">
-      <app-section-field class="block" [section]="section" [field]="field" [item]="item" [itemIndex]="itemIndex"></app-section-field>
+    <ng-container *ngFor="let field of section.fields;">
+      <app-section-field class="block" [section]="section" [sectionIndex]="sectionIndex" [field]="field" [item]="item" [itemIndex]="itemIndex"></app-section-field>
     </ng-container>
   </div>
 </div>
-
-
 
 <app-edit-section-fields [item]="item" [itemIndex]="itemIndex" [section]="section"
   [sectionIndex]="sectionIndex"></app-edit-section-fields>
