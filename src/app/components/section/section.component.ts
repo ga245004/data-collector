@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Section } from '../../models/section.model';
 import { SectionsActions } from '../../state/sections.actions';
 import { Store } from '@ngrx/store';
@@ -6,7 +6,8 @@ import { Store } from '@ngrx/store';
 @Component({
   selector: 'app-section',
   templateUrl: './section.component.html',
-  styleUrls: []
+  styleUrls: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SectionComponent implements OnInit {
 

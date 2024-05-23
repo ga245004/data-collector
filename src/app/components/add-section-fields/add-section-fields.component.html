@@ -1,35 +1,54 @@
-<div [ngClass]="{'opacity-0 hidden' : !section.showAddSectionFields, 'opacity-100' : section.showAddSectionFields}" class="relative z-50"
-aria-labelledby="Add Section Fields" role="dialog">
-<div class="fixed inset-0 bg-gray-300 bg-opacity-75 transition-opacity"></div>
-<div class="fixed inset-0 z-50 w-screen overflow-y-auto">
-    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-        <div [ngClass]="randomG"
-            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-full sm:my-8 sm:w-full sm:max-w-lg">
-            <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4" >
-                <div class="">
-                    <div class="mt-3 text-left sm:ml-4 sm:mt-0">
-                        <h3 class="text-base font-semibold leading-6 text-gray-900">Add Section Fields</h3>
-                        <ng-container *ngFor="let field of section.fields">
-                            <div class="mt-2">
+<div [ngClass]="{'opacity-0 hidden' : !section.showAddSectionFields, 'opacity-100' : section.showAddSectionFields}"
+    class="relative z-50" aria-labelledby="Add Section Fields" role="dialog">
+    <div class="fixed inset-0 bg-gray-300 bg-opacity-75 transition-opacity"></div>
+    <div class="fixed inset-0 z-50 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div [ngClass]="randomG"
+                class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-full sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="">
+                        <div class="mt-3 text-left sm:ml-4 sm:mt-0">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Add Section Fields</h3>
+                            <ng-container *ngIf="!showChatGPT">
+                                <ng-container *ngFor="let field of section.fields">
+                                    <div class="mt-2">
+                                        <div class="space-y-0">
+                                            <label class="block text-sm  pl-2">
+                                                {{section.childLabels[field] || field}}
+                                            </label>
+                                            <input class="block border rounded-sm w-full px-2 py-1" type="text"
+                                                [(ngModel)]="item[field]">
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="showChatGPT">
                                 <div class="space-y-0">
                                     <label class="block text-sm  pl-2">
-                                        {{section.childLabels[field] || field}}
+                                        ChatGPT Response Data
                                     </label>
-                                    <input class="block border rounded-sm w-full px-2 py-1"
-                                        type="text" [(ngModel)]="item[field]">
+                                    <textarea class="block border rounded-sm w-full px-2 py-1" rows="10"
+                                        [(ngModel)]="responseData"></textarea>
                                 </div>
-                            </div>
-                        </ng-container>
+                            </ng-container>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="py-3 flex flex-row-reverse px-4 sm:px-6 gap-3">
-                <button (click)="addFields();" type="button"
-                    class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:w-auto">Add</button>
-                <button (click)="hideAddSectionFields(false)" type="button"
-                    class="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                <div class="sm:ml-4 flex items-center px-4 sm:px-6 py-3">
+                    <div class="flex-1">
+                        <button type="button" (click)="useChatGPT()"
+                            class="inline-flex w-full justify-center rounded-md bg-indigo-800 text-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-indigo-300 hover:bg-indigo-500 sm:w-auto">Use
+                            ChatGTP to generate data</button>
+                    </div>
+                    <div class=" flex flex-row-reverse  gap-3">
+                        <button (click)="addFields();" type="button"
+                            class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:w-auto">Add</button>
+                        <button (click)="hideAddSectionFields(false)" type="button"
+                            class="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
 </div>
