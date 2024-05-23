@@ -2,7 +2,7 @@
   <app-section class="w-full space-x-1" [section]="section"
       [sectionIndex]="sectionIndex">
       <ng-container *ngFor="let item of section.children; let itemIndex = index">
-        <app-section-fields class="h-full w-full p-2 lg:p-4" [item]="item" [itemIndex]="itemIndex"
+        <app-section-fields class="h-full w-full p-2 lg:p-4" [ngClass]="itemIndex % 2 == 0 && (section.children.length == (itemIndex + 1)) ? 'col-span-1 lg:col-span-2' : 'col-span-1'" [item]="item" [itemIndex]="itemIndex"
           [section]="section" [sectionIndex]="sectionIndex"></app-section-fields>
       </ng-container>
     </app-section>
