@@ -58,8 +58,8 @@
 </div>
 
 <div class="grid grid-cols-1 lg:grid-cols-2 transition-all duration-200 gap-4"
-  [ngClass]="{'max-h-full' : section.maximize, 'max-h-svh overflow-scroll' : !section.maximize}"
-  [ngClass]="{ 'max-h-0 overflow-hidden' : !section.expand , 'max-h-svh overflow-scroll': section.expand && !section.maximize}">
+  [ngClass]="{'max-h-full' : section.maximize, 'max-h-svh overflow-y-auto' : !section.maximize}"
+  [ngClass]="{ 'max-h-0 overflow-hidden' : !section.expand , 'max-h-svh overflow-y-auto': section.expand && !section.maximize}">
   <ng-content></ng-content>
 </div>
 
