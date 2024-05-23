@@ -1,4 +1,4 @@
-<div class=" group relative">
+<div class=" group relative" >
   <div class="absolute -top-3 right-4 flex items-center space-x-1 opacity-0 group-hover:opacity-100">
     <button title="Add New Child Before" (click)="addSectionFields(true)" class=" rounded-full border border-indigo-400 bg-indigo-800 text-white 
       hover:bg-indigo-800 hover:text-white active:animate-ping
@@ -29,7 +29,7 @@
     </button>
   </div>
 
-  <div class=" bg-gray-50 border rounded-md p-2 lg:p-4 space-y-2 hover:border-indigo-700">
+  <div class=" bg-gray-50 border rounded-md p-2 lg:p-4 space-y-2 hover:border-indigo-700" [ngClass]="randomG">
     <ng-container *ngFor="let field of section.fields;">
       <app-section-field class="block" [section]="section" [sectionIndex]="sectionIndex" [field]="field" [item]="item" [itemIndex]="itemIndex"></app-section-field>
     </ng-container>

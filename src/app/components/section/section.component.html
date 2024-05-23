@@ -1,10 +1,10 @@
 <div [ngClass]="{'rounded-b-md' : section.children.length == 0}"
-  class="col-span-2 w-full bg-indigo-700 border rounded-t-md text-white px-4 py-2 sticky top-16 z-10 group/section">
+  class="col-span-2 w-full bg-indigo-700 border rounded-t-md text-white px-4 py-2 sticky top-16 z-10 group/section bg-gradient-to-r from-indigo-950 to-indigo-600" >
   <div class="flex flex-row items-center h-11 space-x-2">
     <div class="flex-1 overflow-hidden cursor-pointer" tabindex="0" (keydown.enter)="toggleExpand()"
       (keydown.space)="toggleExpand()"
       (click)="section.expand = !section.expand; section.maximize = !section.expand ? false : section.maximize">
-      <h2 class="text-2xl text-nowrap text-ellipsis overflow-hidden"> {{section.label}}</h2>
+      <h2 class="text-2xl text-nowrap text-white text-ellipsis overflow-hidden"> {{section.label}}</h2>
     </div>
     <div [ngClass]="{ 'hidden opacity-0' : !section.expand , 'flex': section.expand}"
       class=" items-center space-x-3  group-hover/section:flex group-hover/section:opacity-100">
