@@ -4,7 +4,7 @@
     <div class="flex-1 overflow-hidden cursor-pointer" tabindex="0" (keydown.enter)="toggleExpand()"
       (keydown.space)="toggleExpand()"
       (click)="section.expand = !section.expand; section.maximize = !section.expand ? false : section.maximize">
-      <h2 class="text-2xl text-nowrap text-white text-ellipsis overflow-hidden"> {{section.label}}</h2>
+      <h2 class="text-2xl text-nowrap text-white font-semibold text-ellipsis overflow-hidden"> {{section.label}}</h2>
     </div>
     <div [ngClass]="{ 'hidden opacity-0' : !section.expand , 'flex': section.expand}"
       class=" items-center space-x-3  group-hover/section:flex group-hover/section:opacity-100">
