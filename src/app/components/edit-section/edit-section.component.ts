@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Section } from '../../models/section.model';
 import { Store } from '@ngrx/store';
 import { SectionsActions } from '../../state/sections.actions';
+import { getRandomGradient } from '../../utils/randomTwGradient';
 
 @Component({
   selector: 'app-edit-section',
@@ -17,6 +18,7 @@ export class EditSectionComponent implements OnInit {
   @Input()
   section: Section
 
+  randomG = getRandomGradient({ intensity: "100" })
 
   constructor(private store: Store) { }
 
@@ -29,6 +31,10 @@ export class EditSectionComponent implements OnInit {
       console.log(this.section)
       this.store.dispatch(SectionsActions.updateSection({ sectionIndex: this.sectionIndex, props: { ...this.section } }))
     }
+  }
+
+  hideEditSection(isShow: boolean) {
+    this.section.showEditSection = isShow;
   }
 
   updateLabel(section: Section, label: string) {

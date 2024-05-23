@@ -1,62 +1,59 @@
 <div *ngIf="section" [ngClass]="{'opacity-0 hidden' : !section, 'opacity-100' : !!section}" class="relative z-20"
-        aria-labelledby="Add Section" role="dialog" [aria-modal]="!!section">
-        <div class="fixed inset-0 bg-gray-300 bg-opacity-75 transition-opacity"></div>
-        <div class="fixed inset-0 z-20 w-screen overflow-y-auto">
-            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                <div
-                    class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl">
-                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                        <div class="">
-                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                <h3 class="text-base font-semibold leading-6 text-gray-900">Add Section</h3>
-                                <div class="mt-2">
-                                    <div class="space-y-0">
-                                        <label class="block text-xs  pl-2">
-                                            Label
-                                        </label>
-                                        <input class="block border rounded-sm w-full px-2 py-1" type="text"
-                                            [(ngModel)]="section.label">
-                                    </div>
+    aria-labelledby="Add Section" role="dialog" [aria-modal]="!!section">
+    <div class="fixed inset-0 bg-gray-300 bg-opacity-75 transition-opacity"></div>
+    <div class="fixed inset-0 z-20 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div [ngClass]="randomG"
+                class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-full sm:my-8 sm:w-full sm:max-w-3xl">
+                <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="">
+                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Add Section</h3>
+                            <div class="mt-2">
+                                <div class="space-y-0">
+                                    <label class="block text-xs  pl-2">
+                                        Label
+                                    </label>
+                                    <input class="block border rounded-sm w-full px-2 py-1" type="text"
+                                        [(ngModel)]="section.label">
                                 </div>
-                                <div class="mt-2">
-                                    <h4 class="text-base text-gray-900">Fields</h4>
-                                </div>
-                                <ng-container *ngFor="let field of section.fields; let i = index">
-                                    <div class="mt-2 flex items-end space-x-2">
-                                        <div class="flex-1">
-                                            <div class="space-y-0">
-                                                <label class="block text-xs  pl-2">
-                                                    Field {{i + 1}}
-                                                </label>
-                                                <input class="block border rounded-sm w-full px-2 py-1" type="text"
-                                                    [(ngModel)]="section.childLabels[field]">
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <button (click)="section.fields.splice(i, 1)" type="button"
-                                                class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Delete
-                                                Field</button>
+                            </div>
+                            <div class="mt-2">
+                                <h4 class="text-base text-gray-900">Fields</h4>
+                            </div>
+                            <ng-container *ngFor="let field of section.fields; let i = index">
+                                <div class="mt-2 flex items-end space-x-2">
+                                    <div class="flex-1">
+                                        <div class="space-y-0">
+                                            <label class="block text-xs  pl-2">
+                                                Field {{i + 1}}
+                                            </label>
+                                            <input class="block border rounded-sm w-full px-2 py-1" type="text"
+                                                [(ngModel)]="section.childLabels[field]">
                                         </div>
                                     </div>
-                                </ng-container>
-                                <div class="mt-2">
-                                    <button (click)="section.fields.push('field' + section.fields.length)" type="button"
-                                        class="mt-3 inline-flex w-full justify-center rounded-md bg-indigo-800 text-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-indigo-300 hover:bg-indigo-500 sm:mt-0 sm:w-auto">Add
-                                        New Field</button>
+                                    <div>
+                                        <button (click)="section.fields.splice(i, 1)" type="button"
+                                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Delete
+                                            Field</button>
+                                    </div>
                                 </div>
+                            </ng-container>
+                            <div class="mt-2">
+                                <button (click)="section.fields.push('field' + section.fields.length)" type="button"
+                                    class="mt-3 inline-flex w-full justify-center rounded-md bg-indigo-800 text-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-indigo-300 hover:bg-indigo-500 sm:mt-0 sm:w-auto">Add
+                                    New Field</button>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-
-
-                        <button (click)="section = null" type="button"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
-
-                        <button (click)="saveNewSection()" type="button"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-indigo-800 text-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-indigo-300 hover:bg-indigo-500 sm:mt-0 sm:w-auto">Save</button>
-                    </div>
+                </div>
+                <div class="py-3 flex flex-row-reverse px-4 sm:px-6 gap-3">
+                    <button (click)="saveNewSection()" type="button"
+                        class="inline-flex w-full justify-center rounded-md bg-indigo-800 text-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-indigo-300 hover:bg-indigo-500 sm:w-auto">Save</button>
+                    <button (click)="section = null" type="button"
+                        class="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
