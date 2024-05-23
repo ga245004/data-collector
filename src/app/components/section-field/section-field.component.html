@@ -1,6 +1,7 @@
 <div tabindex="0" class="min-h-12 border px-2 py-1 rounded-md hover:bg-indigo-50 hover:border-indigo-700 cursor-pointer
 focus:bg-indigo-500 focus:text-white active:bg-indigo-600 active:text-white group/field
-                " (click)="copySelected($event, item[field])" (keyup.enter)="copySelected($event, item[field])">
+                " (click)="copySelected($event, item[field])" (keyup.enter)="copySelected($event, item[field])"
+  (keyup.space)="copySelected($event, item[field])">
 
   <div class="flex items-center">
     <div class="flex-1 relative">
@@ -10,9 +11,8 @@ focus:bg-indigo-500 focus:text-white active:bg-indigo-600 active:text-white grou
       <div class="font-bold">
         {{item[field]}}
       </div>
-      <div
-      [ngClass]="{'opacity-90 right-1/3': isCopiedSuccess, 'opacity-0 right-0' : !isCopiedSuccess}"
-      class="text-sm text-white absolute top-1 right-1/3 bg-green-600 px-4 py-1 rounded-full transition-all duration-300">
+      <div [ngClass]="{'opacity-90 right-1/3': isCopiedSuccess, 'opacity-0 right-0' : !isCopiedSuccess}"
+        class="text-sm text-white absolute top-1 right-1/3 bg-green-600 px-4 py-1 rounded-full transition-all duration-300">
         Copied!
       </div>
     </div>
@@ -40,4 +40,5 @@ focus:bg-indigo-500 focus:text-white active:bg-indigo-600 active:text-white grou
 
 </div>
 
-<app-edit-field [sectionIndex]="sectionIndex" [section]="section" [field]="field" [item]="item" [itemIndex]="itemIndex" ></app-edit-field>
+<app-edit-field [sectionIndex]="sectionIndex" [section]="section" [field]="field" [item]="item"
+  [itemIndex]="itemIndex"></app-edit-field>

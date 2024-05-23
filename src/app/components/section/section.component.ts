@@ -36,4 +36,8 @@ export class SectionComponent implements OnInit {
     this.store.dispatch(SectionsActions.deleteSection({ sectionIndex: this.sectionIndex }))
   }
 
+  toggleExpand(){
+    this.section.expand = !this.section.expand; 
+    this.section.maximize = !this.section.expand ? false : this.section.maximize
+  }
 }
