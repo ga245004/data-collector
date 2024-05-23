@@ -1,5 +1,7 @@
-<div [ngClass]="{'rounded-b-md' : section.children.length == 0}"
-  class="col-span-2 w-full bg-indigo-700 border rounded-t-md text-white px-4 py-2 sticky top-16 z-10 group/section bg-gradient-to-r from-indigo-950 to-indigo-600" >
+<div [ngClass]="{'rounded-b-md' : section.children.length == 0}" class="col-span-2 w-full bg-indigo-700 border rounded-t-md text-white 
+  px-4 py-1 sm:py-2 
+  sticky top-0 sm:top-16 z-10 
+  group/section bg-gradient-to-r from-indigo-950 to-indigo-600">
   <div class="flex flex-row items-center h-11 space-x-2">
     <div class="flex-1 overflow-hidden cursor-pointer" tabindex="0" (keydown.enter)="toggleExpand()"
       (keydown.space)="toggleExpand()"
@@ -37,7 +39,7 @@
       </button>
     </div>
     <div class="flex items-center space-x-3">
-      <button (click)="section.maximize = true; section.expand = true"
+      <button title="Full Height" (click)="section.maximize = true; section.expand = true"
         class="p-1 bg-blue-700 rounded-md hidden lg:flex">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
           class="w-6 h-6">
@@ -57,7 +59,7 @@
   </div>
 </div>
 
-<div class="grid grid-cols-1 lg:grid-cols-2 transition-all duration-200 gap-4"
+<div class="grid grid-cols-1 lg:grid-cols-2 transition-all duration-200 gap-2 xl:gap-4"
   [ngClass]="{'max-h-full' : section.maximize, 'max-h-svh overflow-y-auto' : !section.maximize}"
   [ngClass]="{ 'max-h-0 overflow-hidden' : !section.expand , 'max-h-svh overflow-y-auto': section.expand && !section.maximize}">
   <ng-content></ng-content>

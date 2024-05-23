@@ -29,7 +29,7 @@
     </button>
   </div>
 
-  <div class=" bg-gray-50 border rounded-md p-2 lg:p-4 space-y-2 hover:border-indigo-700" [ngClass]="randomG">
+  <div class="border rounded-md p-2 lg:p-4 space-y-2 hover:border-indigo-700" [ngClass]="randomG">
     <ng-container *ngFor="let field of section.fields;">
       <app-section-field class="block" [section]="section" [sectionIndex]="sectionIndex" [field]="field" [item]="item" [itemIndex]="itemIndex"></app-section-field>
     </ng-container>
