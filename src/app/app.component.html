@@ -1,74 +1,38 @@
-<div
-    class="absolute sm:fixed top-0 h-16 bg-indigo-950 w-full z-50 flex items-center 
-    pl-2 sm:pl-3 lg:pl-4 bg-gradient-to-r from-indigo-950 to-indigo-600">
-    <div class="flex items-end select-none">
-        <button class="w-10 h-10  rounded-full " (click)="gotoHome()"
-            title="Data Collector = Collect + Copy + Code + Convert">
-            <img class="w-full h-full" src="assets/images/logo.png">
-        </button>
-        <div class="flex items-center space-x-4">
-            <a class="text-xl text-white font-bold">
-                ata Collector
-            </a>
-            <span class="hidden lg:flex items-center space-x-4">
-                <span class="text-gray-200 ">|</span>
-                <span class="text-xl text-rose-500 rounded-full bg-white px-2 py-1 bg-opacity-10">Collect</span>
-                <span class="text-xl text-yellow-400 rounded-full bg-white px-2 py-1 bg-opacity-10">Copy</span>
-                <span class="text-xl text-green-400 rounded-full bg-white px-2 py-1 bg-opacity-10">Code</span>
-                <span class="text-xl text-sky-400 rounded-full bg-white px-2 py-1 bg-opacity-10">Convert</span>
-            </span>
+<div class="relative w-screen h-screen  flex flex-col bg-gradient-to-bl from-gray-200 to-blue-200 ">
+    <div class="px-2 lg:px-4 xl:px-8 bg-indigo-950 bg-gradient-to-r from-indigo-950 to-indigo-600 flex items-center">
+        <div class="h-16 flex items-center">
+            <div class="flex items-end select-none">
+                <button class="w-10 h-10  rounded-full " (click)="gotoHome()"
+                    title="Data Collector = Collect + Copy + Code + Convert">
+                    <img class="w-full h-full" src="assets/images/logo.png">
+                </button>
+                <div class="flex items-center space-x-4">
+                    <a class="text-xl text-white font-bold">
+                        ata Collector
+                    </a>
+                    <span class="hidden lg:flex items-center space-x-4">
+                        <span class="text-gray-200 ">|</span>
+                        <span class="text-xl text-rose-500 rounded-full bg-white px-2 py-1 bg-opacity-10">Collect</span>
+                        <span class="text-xl text-yellow-400 rounded-full bg-white px-2 py-1 bg-opacity-10">Copy</span>
+                        <span class="text-xl text-green-400 rounded-full bg-white px-2 py-1 bg-opacity-10">Code</span>
+                        <span class="text-xl text-sky-400 rounded-full bg-white px-2 py-1 bg-opacity-10">Convert</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 hidden lg:flex items-center justify-end mx-4 space-x-2">
+            <ng-container *ngFor="let tab of tabs">
+                <button (click)="selectedTab = tab" [title]="tab"
+                    [ngClass]="selectedTab == tab ? 'bg-indigo-800' :'hover:bg-indigo-500 focus:bg-indigo-500 active:bg-indigo-800' "
+                    class="text-white text-lg flex items-center space-x-2 border border-transparent rounded-md px-2 sm:px-4 py-1  active:border-transparent">
+                    {{tab}}
+                </button>
+            </ng-container>
         </div>
     </div>
-    <div class="flex-1 flex items-center justify-end mx-4 space-x-2">
-        <button (click)="expandALl()" class="text-white hidden sm:flex items-center space-x-2 border border-transparent rounded-md px-2 sm:px-4 py-1
-            hover:bg-indigo-800
-            focus:bg-indigo-800 
-            active:bg-indigo-500 active:border-transparent
-        ">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
-                <path fill-rule="evenodd"
-                    d="M7.47 12.78a.75.75 0 0 0 1.06 0l3.25-3.25a.75.75 0 0 0-1.06-1.06L8 11.19 5.28 8.47a.75.75 0 0 0-1.06 1.06l3.25 3.25ZM4.22 4.53l3.25 3.25a.75.75 0 0 0 1.06 0l3.25-3.25a.75.75 0 0 0-1.06-1.06L8 6.19 5.28 3.47a.75.75 0 0 0-1.06 1.06Z"
-                    clip-rule="evenodd" />
-            </svg>
 
-            <span class="hidden lg:flex">
-                Expand
-            </span>
-        </button>
-        <button (click)="collapseAll()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-2 sm:px-4 py-1
-            hover:bg-indigo-800
-            focus:bg-indigo-800 
-            active:bg-indigo-500 active:border-transparent
-        ">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
-                <path fill-rule="evenodd"
-                    d="M7.47 3.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1-1.06 1.06L8 4.81 5.28 7.53a.75.75 0 0 1-1.06-1.06l3.25-3.25Zm-3.25 8.25 3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 1 1-1.06 1.06L8 9.81l-2.72 2.72a.75.75 0 0 1-1.06-1.06Z"
-                    clip-rule="evenodd" />
-            </svg>
 
-            <span class="hidden lg:flex">
-                Collapse
-            </span>
-        </button>
-        <button (click)="emptySection()" class="text-white flex items-center space-x-2 border border-transparent rounded-md px-2 sm:px-4 py-1
-            hover:bg-indigo-800
-            focus:bg-indigo-800 
-            active:bg-indigo-500 active:border-transparent
-        ">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-                <path fill-rule="evenodd"
-                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
-                    clip-rule="evenodd" />
-            </svg>
-            <span class="hidden lg:flex">
-                Add Section
-            </span>
-        </button>
+    <div class="flex-1 w-full h-full ">
+        <router-outlet></router-outlet>
     </div>
 </div>
-
-<div class="mt-20 relative mx-auto w-full max-w-container px-2 lg:px-4 xl:px-8">
-    <router-outlet></router-outlet>
-</div>
-
-<app-add-section [section]="newSection"></app-add-section>

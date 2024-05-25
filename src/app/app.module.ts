@@ -17,6 +17,7 @@ import { EditSectionComponent } from "./components/edit-section/edit-section.com
 import { AddSectionFieldsComponent } from "./components/add-section-fields/add-section-fields.component";
 import { AddSectionComponent } from "./components/add-section/add-section.component";
 import { EditFieldComponent } from "./components/edit-field/edit-field.component";
+import { CollectionsComponent } from "./components/collections/collections.component";
 
 @NgModule({
     imports: [
@@ -39,7 +40,8 @@ import { EditFieldComponent } from "./components/edit-field/edit-field.component
         EditSectionComponent,
         AddSectionFieldsComponent,
         AddSectionComponent,
-        EditFieldComponent
+        EditFieldComponent,
+        CollectionsComponent,
     ],
     bootstrap: [
         AppComponent

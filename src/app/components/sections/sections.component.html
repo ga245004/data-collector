@@ -1,4 +1,4 @@
-<ng-container *ngFor="let section of sections; let sectionIndex = index">
+<ng-container *ngFor="let section of sections; let sectionIndex = index; trackBy: trackBySection">
   <app-section class="w-full space-x-1" [section]="section"
       [sectionIndex]="sectionIndex">
       <ng-container *ngFor="let item of section.children; let itemIndex = index">

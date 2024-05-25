@@ -1,4 +1,17 @@
-<div class="border rounded-xl
-            flex flex-col items-start justify-center space-y-2 overflow-visible">
-    <app-sections class="w-full" [sections]="data"></app-sections>
+<div class="flex flex-col lg:flex-row  items-stretch justify-stretch gap-4 p-8">
+    <div class="flex-1 flex flex-col items-center justify-center gap-4 bg-indigo-600 text-white rounded-xl text-center">
+        <h2 class="flex items-center justify-center text-2xl p-4 rounded-xl font-semibold">
+            Instant data copying with a Single Click
+        </h2>
+        <h3 class="flex items-start justify-center text-2xl p-4 rounded-xl">
+            Effortlessly copy data from your collections and paste it seamlessly, enhancing your productivity and
+            accuracy.
+        </h3>
+    </div>
+    <div class="flex-1 flex gap-4">
+        <video class="w-full h-full" src="assets/videos/demo.mp4" autoplay muted loop></video>
+    </div>
+</div>
+<div class="flex items-center justify-center">
+    <button (click)="gotoCollection()" class="text-white text-lg flex items-center space-x-2 border border-transparent rounded-md px-4 sm:px-6 py-4  active:border-transparent bg-indigo-800 hover:bg-indigo-500 focus:bg-indigo-500 active:bg-indigo-800">Get Started Now</button>
 </div>

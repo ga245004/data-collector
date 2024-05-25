@@ -13,27 +13,20 @@ import { getRandomGradient } from './utils/randomTwGradient';
 })
 export class AppComponent {
 
+  tabs = [
+    "Home",
+    "Feature",
+    "Pricing",
+    "Contact",
+  ]
+
+  selectedTab = "Home"
+
   constructor(private router: Router, private store: Store) { };
-
-
-  newSection: Section = null
 
   gotoHome() {
     this.router.navigateByUrl('/');
   }
 
-  expandALl() {
-    this.store.dispatch(SectionsActions.expandCollapseSection({ expand: true }))
-  }
-
-  collapseAll() {
-    this.store.dispatch(SectionsActions.expandCollapseSection({ expand: false }))
-  }
-
-  emptySection() {
-    this.newSection = {
-      label: '', columns: 2, children: [], childLabels: {}, fields: []
-    }
-  }
 
 }
